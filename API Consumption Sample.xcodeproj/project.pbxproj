@@ -19,6 +19,7 @@
 		AEE3927425A39C420083DD58 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE3927325A39C420083DD58 /* EventDetailViewController.swift */; };
 		AEE3927925A39CB80083DD58 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE3927725A39CB80083DD58 /* EventCell.swift */; };
 		AEE3927A25A39CB80083DD58 /* EventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEE3927825A39CB80083DD58 /* EventCell.xib */; };
+		AEE3927E25A39EF80083DD58 /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE3927D25A39EF80083DD58 /* APIHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		AEE3927325A39C420083DD58 /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		AEE3927725A39CB80083DD58 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		AEE3927825A39CB80083DD58 /* EventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventCell.xib; sourceTree = "<group>"; };
+		AEE3927D25A39EF80083DD58 /* APIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				AE0F9BD025A397E100B44A0C /* Assets.xcassets */,
 				AE0F9BD225A397E100B44A0C /* LaunchScreen.storyboard */,
 				AE0F9BD525A397E100B44A0C /* Info.plist */,
+				AEE3927D25A39EF80083DD58 /* APIHandler.swift */,
 			);
 			path = "API Consumption Sample";
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEE3927E25A39EF80083DD58 /* APIHandler.swift in Sources */,
 				AEE3926925A39B7A0083DD58 /* Event.swift in Sources */,
 				AEE3927425A39C420083DD58 /* EventDetailViewController.swift in Sources */,
 				AE0F9BCC25A397E000B44A0C /* EventsViewController.swift in Sources */,

@@ -11,15 +11,18 @@ class EventsViewController: UIViewController {
     //MARK: - Class Properties
     ///@IBOutlets
     
-    
     ///Other Properties
+    let apiHandler = APIHandler()
 
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        setupView()
     }
-
-
+    
+    func setupView() {
+        
+    }
 }
 
 
