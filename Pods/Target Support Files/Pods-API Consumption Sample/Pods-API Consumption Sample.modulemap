@@ -1,0 +1,6 @@
+framework module Pods_API_Consumption_Sample {
+  umbrella header "Pods-API Consumption Sample-umbrella.h"
+
+  export *
+  module * { export * }
+}
