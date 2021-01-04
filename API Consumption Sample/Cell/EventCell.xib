@@ -16,9 +16,71 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="138"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="dSX-fc-POg">
+                        <rect key="frame" x="15" y="15" width="290" height="108"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nv1-58-R55">
+                                <rect key="frame" x="0.0" y="0.0" width="58" height="58"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="nv1-58-R55" secondAttribute="height" multiplier="1:1" id="7RK-a4-qJ4"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="m9Y-6C-OKw">
+                                <rect key="frame" x="88" y="0.0" width="202" height="79.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="titleLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSl-46-HWc">
+                                        <rect key="frame" x="0.0" y="0.0" width="202" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cityStateLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p0h-TE-thb">
+                                        <rect key="frame" x="0.0" y="35.5" width="202" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="timeLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hBz-yz-wqa">
+                                        <rect key="frame" x="0.0" y="65" width="202" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="nv1-58-R55" firstAttribute="width" secondItem="dSX-fc-POg" secondAttribute="width" multiplier="0.2" id="Xb7-mS-3Ct"/>
+                        </constraints>
+                    </stackView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="favorite_full" translatesAutoresizingMaskIntoConstraints="NO" id="lRE-0C-8pN">
+                        <rect key="frame" x="7" y="7" width="29" height="29"/>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="lRE-0C-8pN" firstAttribute="width" secondItem="nv1-58-R55" secondAttribute="width" multiplier="0.5" id="0zj-Vp-b5D"/>
+                    <constraint firstAttribute="bottom" secondItem="dSX-fc-POg" secondAttribute="bottom" constant="15" id="IjF-ZV-y6i"/>
+                    <constraint firstItem="lRE-0C-8pN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="7" id="dQa-qT-j2K"/>
+                    <constraint firstItem="dSX-fc-POg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="e81-lF-sjp"/>
+                    <constraint firstItem="lRE-0C-8pN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="mI5-Kk-Abg"/>
+                    <constraint firstItem="lRE-0C-8pN" firstAttribute="height" secondItem="nv1-58-R55" secondAttribute="height" multiplier="0.5" id="npx-pC-4wv"/>
+                    <constraint firstAttribute="trailing" secondItem="dSX-fc-POg" secondAttribute="trailing" constant="15" id="pgd-Y6-tMH"/>
+                    <constraint firstItem="dSX-fc-POg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="t2i-Ha-wPI"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="eventImage" destination="nv1-58-R55" id="WNh-aO-7Sv"/>
+                <outlet property="eventLocation" destination="p0h-TE-thb" id="5JQ-W4-PJB"/>
+                <outlet property="eventTime" destination="hBz-yz-wqa" id="U5R-jy-vDU"/>
+                <outlet property="eventTitle" destination="vSl-46-HWc" id="2UY-eb-cgH"/>
+                <outlet property="favoritedImage" destination="lRE-0C-8pN" id="nfu-kL-5P0"/>
+            </connections>
             <point key="canvasLocation" x="131.8840579710145" y="161.38392857142856"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="favorite_full" width="40" height="36"/>
+    </resources>
 </document>

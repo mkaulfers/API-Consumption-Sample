@@ -12,7 +12,6 @@
         <!--Events View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="EventsViewController" customModule="API_Consumption_Sample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -43,7 +42,11 @@
                             <constraint firstItem="JTL-rO-9mV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="i9m-8O-ijV"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="JTL-rO-9mV" id="g3b-7i-2cQ"/>
+                    </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="133" y="115"/>
         </scene>
