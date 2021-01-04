@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  EventDetailViewController.swift
 //  API Consumption Sample
 //
 //  Created by Matthew Kaulfers on 1/4/21.
@@ -7,13 +7,8 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class EventDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
-
-
 }
-
