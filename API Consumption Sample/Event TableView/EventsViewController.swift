@@ -43,20 +43,15 @@ class EventsViewController: UIViewController {
     //MARK: - Download Data
     func downloadData() {
         URLSession.shared.dataTask(with: apiHandler.apiLink) {  data, response, error in
-            if let error = error {
-                //Error occurred.
+            if let _ = error,
+               let _ = response {
+                let alert = UIAlertController(title: "Error", message: "Something went wrong. Try again later.", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
                 return
             }
             
-            guard let response = response else {
-                //Response is empty.
-                return
-            }
-            
-            guard let data = data else {
-                //Data is empty
-                return
-            }
+            guard let data = data else { return }
             
             do {
                 let eventApiData = try JSONDecoder().decode(EventAPIData.self, from: data)
@@ -138,7 +133,7 @@ extension EventsViewController: UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filteredEvents = events.filter {$0.title.contains(searchText.trimmingCharacters(in: .whitespacesAndNewlines))}
+        filteredEvents = events.filter {$0.title.lowercased().contains(searchText.lowercased().trimmingCharacters(in: .whitespacesAndNewlines))}
         tableView.reloadData()
     }
     
