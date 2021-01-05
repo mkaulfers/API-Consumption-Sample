@@ -55,16 +55,16 @@
                         </constraints>
                     </stackView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="favorite_full" translatesAutoresizingMaskIntoConstraints="NO" id="lRE-0C-8pN">
-                        <rect key="frame" x="7" y="7" width="29" height="29"/>
+                        <rect key="frame" x="2" y="2" width="29" height="29"/>
                     </imageView>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="lRE-0C-8pN" firstAttribute="width" secondItem="nv1-58-R55" secondAttribute="width" multiplier="0.4" id="0zj-Vp-b5D"/>
                     <constraint firstAttribute="bottom" secondItem="dSX-fc-POg" secondAttribute="bottom" constant="15" id="IjF-ZV-y6i"/>
-                    <constraint firstItem="lRE-0C-8pN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="7" id="dQa-qT-j2K"/>
+                    <constraint firstItem="lRE-0C-8pN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="2" id="dQa-qT-j2K"/>
                     <constraint firstItem="dSX-fc-POg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="e81-lF-sjp"/>
-                    <constraint firstItem="lRE-0C-8pN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="mI5-Kk-Abg"/>
+                    <constraint firstItem="lRE-0C-8pN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="mI5-Kk-Abg"/>
                     <constraint firstItem="lRE-0C-8pN" firstAttribute="height" secondItem="nv1-58-R55" secondAttribute="height" multiplier="0.4" id="npx-pC-4wv"/>
                     <constraint firstAttribute="trailing" secondItem="dSX-fc-POg" secondAttribute="trailing" constant="15" id="pgd-Y6-tMH"/>
                     <constraint firstItem="dSX-fc-POg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="t2i-Ha-wPI"/>

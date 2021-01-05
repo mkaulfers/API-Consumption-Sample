@@ -54,25 +54,25 @@
                                 <rect key="frame" x="15" y="44" width="384" height="35"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jbb-w7-bhU">
-                                        <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="35" id="7o8-a8-bci"/>
-                                            <constraint firstAttribute="height" constant="35" id="a6i-gk-hcV"/>
+                                            <constraint firstAttribute="width" constant="25" id="7o8-a8-bci"/>
+                                            <constraint firstAttribute="height" constant="25" id="a6i-gk-hcV"/>
                                         </constraints>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" image="chevron.left" catalog="system"/>
+                                        <state key="normal" image="back"/>
                                         <connections>
                                             <action selector="backButtonTapped:" destination="Bf4-VM-7ss" eventType="touchUpInside" id="Gal-HR-fow"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Yv-cc-5HH">
-                                        <rect key="frame" x="65" y="0.0" width="254" height="20.5"/>
+                                        <rect key="frame" x="55" y="0.0" width="264" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="4It-jD-j3J">
-                                        <rect key="frame" x="349" y="1.5" width="35" height="32.5"/>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="favorite_empty" translatesAutoresizingMaskIntoConstraints="NO" id="4It-jD-j3J">
+                                        <rect key="frame" x="349" y="0.0" width="35" height="35"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <gestureRecognizers/>
                                         <constraints>
@@ -80,7 +80,7 @@
                                             <constraint firstAttribute="width" constant="35" id="bir-0o-TDM"/>
                                         </constraints>
                                         <connections>
-                                            <outletCollection property="gestureRecognizers" destination="Cah-uy-31s" appends="YES" id="th9-OZ-AuX"/>
+                                            <outletCollection property="gestureRecognizers" destination="bsf-X3-2SN" appends="YES" id="bTp-SN-vIm"/>
                                         </connections>
                                     </imageView>
                                 </subviews>
@@ -106,9 +106,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q5y-lS-Y6Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="Cah-uy-31s">
+                <tapGestureRecognizer id="bsf-X3-2SN">
                     <connections>
-                        <action selector="favoriteTapped:" destination="Bf4-VM-7ss" id="Iw6-ei-tc3"/>
+                        <action selector="favoriteTapped:" destination="Bf4-VM-7ss" id="HWo-4u-Umw"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -116,8 +116,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chevron.left" catalog="system" width="96" height="128"/>
-        <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="back" width="16" height="16"/>
+        <image name="favorite_empty" width="42.5" height="38"/>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

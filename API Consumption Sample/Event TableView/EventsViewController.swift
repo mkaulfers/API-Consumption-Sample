@@ -16,15 +16,31 @@ class EventsViewController: UIViewController {
     ///Other Properties
     let apiHandler = APIHandler()
     var events = [Event]()
+    var filteredEvents = [Event]()
+    let userDefaults = UserDefaults.standard
+    var favoritedEvents = [Int]()
 
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchSavedFavorites()
         setupView()
         downloadData()
     }
     
-    //Get the data
+    override func viewWillAppear(_ animated: Bool) {
+        fetchSavedFavorites()
+        tableView.reloadData()
+    }
+    
+    //MARK: - Utility methods
+    fileprivate func fetchSavedFavorites() {
+        if let savedEvents = userDefaults.object(forKey: "user_favorites") as? [Int] {
+            favoritedEvents = savedEvents
+        }
+    }
+    
+    //MARK: - Download Data
     func downloadData() {
         URLSession.shared.dataTask(with: apiHandler.apiLink) {  data, response, error in
             if let error = error {
@@ -45,6 +61,7 @@ class EventsViewController: UIViewController {
             do {
                 let eventApiData = try JSONDecoder().decode(EventAPIData.self, from: data)
                 self.events = eventApiData.events
+                self.filteredEvents = eventApiData.events
                 
             } catch (let error) {
                 print(error.localizedDescription)
@@ -69,6 +86,7 @@ class EventsViewController: UIViewController {
         }
     }
     
+    //MARK: - Prepare for Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as? EventDetailViewController
         
@@ -83,7 +101,7 @@ class EventsViewController: UIViewController {
 //MARK: - UITableView Extension
 extension EventsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        events.count
+        filteredEvents.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -91,7 +109,14 @@ extension EventsViewController: UITableViewDataSource, UITableViewDelegate {
             ///Unlikely to ever hit this without some critical error.
             return EventCell()
         }
-        cell.event = events[indexPath.row]
+        cell.event = filteredEvents[indexPath.row]
+        
+        if favoritedEvents.contains(filteredEvents[indexPath.row].id) {
+            cell.favoritedImage.isHidden = false
+        } else {
+            cell.favoritedImage.isHidden = true
+        }
+        
         return cell
     }
     
@@ -111,5 +136,22 @@ extension EventsViewController: UISearchBarDelegate {
         searchBar.showsCancelButton = false
         searchBar.resignFirstResponder()
     }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filteredEvents = events.filter {$0.title.contains(searchText.trimmingCharacters(in: .whitespacesAndNewlines))}
+        tableView.reloadData()
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        if searchBar.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+            filteredEvents = events
+            tableView.reloadData()
+        }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
 }
+
 
