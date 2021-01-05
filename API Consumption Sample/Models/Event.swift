@@ -17,6 +17,21 @@ struct Event: Codable {
     var venue: Venue
     var performers: [Performer]
     var title: String
+    
+    var readableTime: String {
+        let isoFormatter = ISO8601DateFormatter()
+        isoFormatter.formatOptions = .withInternetDateTime
+        let date = isoFormatter.date(from: "\(datetime_utc)Z")
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE, MMMM d, yyyy \nh:mm a"
+        
+        if let date = date {
+            return dateFormatter.string(from: date)
+        }
+        
+        return "Time Not Available"
+    }
 }
 
 struct Venue: Codable {

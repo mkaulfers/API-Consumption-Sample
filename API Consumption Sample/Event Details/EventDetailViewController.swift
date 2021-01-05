@@ -38,7 +38,7 @@ class EventDetailViewController: UIViewController {
       
             //Details
             eventTitle.text = event.title
-            eventTime.text = event.datetime_utc
+            eventTime.text = event.readableTime.replacingOccurrences(of: "\n", with: "")
             eventCityState.text = "\(event.venue.city), \(event.venue.state)"
         }
     }

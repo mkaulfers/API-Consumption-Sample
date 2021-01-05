@@ -35,7 +35,7 @@ class EventCell: UITableViewCell {
             eventImage.kf.setImage(with: URL(string: imageURLString))
             eventTitle.text = event.title
             eventLocation.text = "\(event.venue.city), \(event.venue.state)"
-            eventTime.text = event.datetime_utc
+            eventTime.text = event.readableTime
         }
     }
 }
