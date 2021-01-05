@@ -60,6 +60,8 @@ class EventsViewController: UIViewController {
     //General setup of the view.
     func setupView() {
         tableView.register(UINib(nibName: "EventCell", bundle: .main), forCellReuseIdentifier: "event_cell_identifier")
+        tableView.keyboardDismissMode = .onDrag
+        
         if #available(iOS 13.0, *) {
             searchBar.searchTextField.leftView?.tintColor = .white
         } else {
@@ -95,6 +97,19 @@ extension EventsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "to_details_storyboard", sender: events[indexPath.row])
+    }
+}
+
+//MARK: - Search Bar Extension
+extension EventsViewController: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = true
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchBar.showsCancelButton = false
+        searchBar.resignFirstResponder()
     }
 }
 
