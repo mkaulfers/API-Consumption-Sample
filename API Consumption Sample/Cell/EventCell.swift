@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class EventCell: UITableViewCell {
     //MARK: @IBoutlets
@@ -29,7 +30,12 @@ class EventCell: UITableViewCell {
         eventImage.clipsToBounds = true
         
         if let event = event {
-            //Do something with event.
+            let imageURLString = event.performers.first?.image ??
+                "https://thumbs.dreamstime.com/b/no-image-available-icon-flat-vector-no-image-available-icon-flat-vector-illustration-132482953.jpg"
+            eventImage.kf.setImage(with: URL(string: imageURLString))
+            eventTitle.text = event.title
+            eventLocation.text = "\(event.venue.city), \(event.venue.state)"
+            eventTime.text = event.datetime_utc
         }
     }
 }

@@ -10,8 +10,8 @@ import UIKit
 class EventsViewController: UIViewController {
     //MARK: - Class Properties
     ///@IBOutlets
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
-    
     
     ///Other Properties
     let apiHandler = APIHandler()
@@ -22,6 +22,10 @@ class EventsViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         downloadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = true
     }
     
     //Get the data
@@ -42,14 +46,38 @@ class EventsViewController: UIViewController {
                 return
             }
             
-            //Decode data into model.
-            print("Data Downloaded")
+            do {
+                let eventApiData = try JSONDecoder().decode(EventAPIData.self, from: data)
+                self.events = eventApiData.events
+                
+            } catch (let error) {
+                print(error.localizedDescription)
+            }
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+            
         }.resume()
     }
     
     //General setup of the view.
     func setupView() {
         tableView.register(UINib(nibName: "EventCell", bundle: .main), forCellReuseIdentifier: "event_cell_identifier")
+        if #available(iOS 13.0, *) {
+            searchBar.searchTextField.leftView?.tintColor = .white
+        } else {
+            searchBar.tintColor = .white
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as? EventDetailViewController
+        
+        if let sender = sender as? Event,
+           let destination = destination {
+            destination.event = sender
+        }
     }
 }
 
@@ -65,7 +93,12 @@ extension EventsViewController: UITableViewDataSource, UITableViewDelegate {
             ///Unlikely to ever hit this without some critical error.
             return EventCell()
         }
+        cell.event = events[indexPath.row]
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "to_details_storyboard", sender: events[indexPath.row])
     }
 }
 
