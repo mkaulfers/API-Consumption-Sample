@@ -24,10 +24,6 @@ class EventsViewController: UIViewController {
         downloadData()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.isNavigationBarHidden = true
-    }
-    
     //Get the data
     func downloadData() {
         URLSession.shared.dataTask(with: apiHandler.apiLink) {  data, response, error in
